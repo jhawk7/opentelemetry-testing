@@ -16,7 +16,9 @@ exporters:
   logging:
 
   # Export to jaeger
-  jaeger:
+  #jaeger:
+  #  endpoint: "jaeger-all-in-one:14250"
+  #  insecure: true
 
 # Configure processors (batch, sampling, filtering, hashing sensitive data, etc.)
 # https://opentelemetry.io/docs/collector/configuration/#processors
@@ -33,7 +35,7 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logging, jaeger]
+      exporters: [logging] #, jaeger]
     metrics:
       receivers: [otlp]
       processors: [batch]
