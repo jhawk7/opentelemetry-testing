@@ -7,6 +7,7 @@ services:
       - ./prom/prometheus.yaml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
+    restart: always
 
   # OpenTelemetry Collector
   otel-collector:
@@ -19,4 +20,4 @@ services:
       - "8888:8888"   # Prometheus metrics exposed by the collector
       - "8889:8889"   # Prometheus exporter metrics
       - "4317:4317"   # OTLP gRPC receiver
-      
+    restart: always      
